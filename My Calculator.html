@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+</head>
+<body>
+	<link rel="stylesheet" type="text/css" href="mycalculator.css">
+	<div class="cal">
+<table>
+	<thead>
+		<label for="firstnumber"></label>
+		<input type="text" name="firstnumber" id="firstnumber" class=""> <br/><br/>
+	</thead>
+	<tbody>
+		<button name="seven" id="seven" class="num7" onclick="num('7')">7</button>
+		<button name="eight" id="eight" class="num8" onclick="num('8')">8</button>
+		<button name="nine" id="nine" class="num9" onclick="num('9')">9</button>
+		<button name="add" id="add" class="plus" onclick="sign('+')">+</button> <br/><br/>
+
+		<button name="four" id="four" class="num4" onclick="num('4')">4</button>
+		<button name="five" id="five" class="num5" onclick="num('5')">5</button>
+		<button name="six" id="six" class="num6" onclick="num('6')">6</button>
+		<button name="sub" id="sub" class="minus" onclick="sign('-')">-</button><br/><br/>
+
+		<button name="one" id="one" class="num1" onclick="num('1')">1</button>
+		<button name="two" id="two" class="num2" onclick="num('2')">2</button>
+		<button name="three" id="three" class="num3" onclick="num('3')">3</button>
+		<button name="multi" id="multi" class="multiply" onclick="sign('*')">*</button>	<br/><br/>	
+	
+	
+		<button name="dev" id="dev" class="divide" onclick="sign('/')">/</button>
+		<button name="mod" id="mod" class="rational" onclick="sign('%')">%</button>
+		<button name="cal" id="cal" class="ans" onclick="calculate()">Calculate</button>
+		<input type="text" name="result" id="result" class="result"> <br/><br/>
+	</tbody>
+	<tfoot>
+		<input type="hidden" name="tempsign" id="tempsign" class=""> <br/><br/>
+	</tfoot>
+</table>
+</div>
+</body>
+<script type="text/javascript">
+
+	function sign(sign){
+		// console.log(sign);
+		document.getElementById("tempsign").value=sign;
+	}
+
+	function calculate(){
+		let num1= Number(document.getElementById("firstnumber").value);
+		let num2= Number(document.getElementById("secondnumber").value);
+
+		let getsign = document.getElementById("tempsign").value;
+		let cal;
+
+		switch(getsign){
+			case "+":
+				cal = num1 + num2;
+				break;
+			case "-":
+				cal = num1 - num2;
+				break;
+			case "*":
+				cal = num1 * num2;
+				break;
+			case "/":
+				cal = num1 / num2;
+				break;
+			case "%":
+				cal = num1 % num2;
+				break;
+			// default:
+			// 	console.log("No Sign");
+		}
+
+		document.getElementById("result").value= cal;
+		
+	}
+
+</script>
+</html>
